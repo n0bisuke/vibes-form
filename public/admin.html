@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>アンケート管理画面</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .option-row { display: flex; gap: 0.5em; margin-bottom: 0.5em; }
+    .option-row input { flex: 1; }
+    .option-row button { background: #e53e3e; color: #fff; border: none; border-radius: 4px; padding: 0 0.7em; }
+    #add-option-btn { background: #4f8cff; color: #fff; border: none; border-radius: 4px; padding: 0.3em 1em; margin-bottom: 1em; }
+    #submit-btn { background: #38a169; color: #fff; border: none; border-radius: 4px; padding: 0.5em 2em; font-size: 1.1em; }
+    #result-msg { margin-top: 1em; color: #38a169; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>アンケート管理画面</h1>
+  </header>
+  <main id="main-content" style="max-width: 600px; margin: 2em auto;">
+    <form id="survey-form">
+      <div>
+        <label>質問文</label>
+        <input type="text" id="question-input" required style="width:100%;margin-bottom:1em;">
+      </div>
+      <div id="options-list">
+        <div class="option-row">
+          <input type="text" class="option-input" required placeholder="選択肢1">
+          <button type="button" class="remove-option-btn" tabindex="-1">削除</button>
+        </div>
+        <div class="option-row">
+          <input type="text" class="option-input" required placeholder="選択肢2">
+          <button type="button" class="remove-option-btn" tabindex="-1">削除</button>
+        </div>
+      </div>
+      <button type="button" id="add-option-btn">選択肢を追加</button>
+      <br>
+      <button type="submit" id="submit-btn">アンケートを追加</button>
+    </form>
+    <div style="margin-top:2em;">
+      <button id="clear-chat-btn" style="background:#e53e3e;color:#fff;border:none;border-radius:4px;padding:0.5em 1.5em;margin-right:1em;">チャット履歴クリア</button>
+      <button id="clear-survey-btn" style="background:#e53e3e;color:#fff;border:none;border-radius:4px;padding:0.5em 1.5em;margin-right:1em;">アンケート集計クリア</button>
+      <button id="download-csv-btn" style="background:#4f8cff;color:#fff;border:none;border-radius:4px;padding:0.5em 1.5em;">CSVダウンロード</button>
+    </div>
+    <div id="result-msg"></div>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>リアルタイムアンケート＆チャット</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="nickname-modal" class="modal">
+    <div class="modal-content">
+      <h2>ニックネームを入力してください</h2>
+      <input type="text" id="nickname-input" maxlength="20" placeholder="ニックネーム">
+      <button id="nickname-btn">決定</button>
+    </div>
+  </div>
+
+  <div id="main-content" style="display:none;">
+    <header>
+      <h1>リアルタイムアンケート＆チャット</h1>
+      <div id="user-nickname"></div>
+    </header>
+
+    <section id="chat-section">
+      <h2>チャット</h2>
+      <div id="chat-messages"></div>
+      <form id="chat-form">
+        <input type="text" id="chat-input" maxlength="200" placeholder="メッセージを入力">
+        <button type="submit">送信</button>
+      </form>
+    </section>
+
+    <section id="survey-section">
+      <h2>アンケート</h2>
+      <div id="survey-question"></div>
+      <form id="survey-form"></form>
+      <div id="survey-results"></div>
+    </section>
+  </div>
+
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
